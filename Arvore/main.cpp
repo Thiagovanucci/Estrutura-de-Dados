@@ -18,7 +18,6 @@ void vazia(arvoreBinaria r){
 arvoreBinaria busca(arvoreBinaria r,int conteudo){
     if( r== NULL){
         cout<<"árvore vazia "<<endl;
-        return ;
     }
     if (r->dado == conteudo){
         return r;
@@ -45,9 +44,34 @@ void exibirArvore(arvoreBinaria r){
     }
 }
 
-int exibirArvore(arvoreBinaria r,int conteudo){
-    arvore *nonovo,*atual,*p;
-    nonovo = malloc(sizeof(r));
+int inserir(arvoreBinaria r,int conteudo){
+    arvore *new_no = new arvore();
+    arvore *atual = new arvore();
+    arvore *p = new arvore();
+    if (new_no == NULL) {
+        return 0;}
+    new_no->dado = conteudo;
+    new_no->esq = NULL;
+    new_no->dir = NULL;
 
+    if (r == NULL){ 
+        r = new_no;
+        return 1;
+    }
+    atual = r;
+    while (atual != NULL) {
+        p = atual;
+        if (atual->dado > conteudo){
+        atual = atual->esq;}
+        else{
+        atual = atual->dir;}
+        }
+    if (p->dado > conteudo){
+        p->esq = new_no;}
+    else{
+        p->dir = new_no;}
+    return 1;
+       
 }
+
 

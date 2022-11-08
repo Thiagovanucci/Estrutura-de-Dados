@@ -8,7 +8,8 @@ typedef class No{
 
 typedef arvore *arvoreBinaria;
 
-void cria();
+void cria(arvoreBinaria *r);
 void vazia(No* r);
 arvoreBinaria busca(arvoreBinaria r,int conteudo);
-int exibirArvore(arvoreBinaria r);
+void exibirArvore(arvoreBinaria r);
+int inserir(arvoreBinaria r, int conteudo);
